@@ -14,3 +14,5 @@ for coin in coinArr:
     answer = answer + count
     k = k-(count*coin)
 print(answer)
+
+
