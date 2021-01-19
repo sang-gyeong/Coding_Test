@@ -15,7 +15,7 @@ def solution(stones, k):
 
 
 # 이진탐색 기법을 사용하여 효율성 테스트 통과
-def solution(stones, k):
+def solution2(stones, k):
     start = 0
     end = 200000000 # max(stones) 라고 하니 오류 발생
     
