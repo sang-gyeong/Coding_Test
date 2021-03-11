@@ -1,26 +1,22 @@
-results = []
-
-
 def solution(s, n):
-    global results
     results = []
     answer = 0
-    go(s, 0, n, 0)
+    go(s, 0, n, 0, results)
     answer = max(results)
     return answer
 
 
-def go(s, index, n, max_len):
+def go(s, index, n, max_len, results):
     if index == len(s):
         results.append(max_len)
         return
     if s[index] == '1':
-        go(s, index+1, n, max_len+1)
+        go(s, index+1, n, max_len+1, results)
     else:
         results.append(max_len)
         if n > 0:
-            go(s, index+1, n-1, max_len+1)
-        go(s, index+1, n, 0)
+            go(s, index+1, n-1, max_len+1, results)
+        go(s, index+1, n, 0, results)
 
 
 def main():
