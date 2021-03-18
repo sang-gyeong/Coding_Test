@@ -19,11 +19,11 @@ for _ in range(l):
     changes[int(sec)] = new_dir
 
 spaces = deque()
-spaces.appendleft([0, 0])
 
 x, y = 0, 0
 dir = 1
 sec = 0
+
 while(True):
     # 초 증가 및 이동좌표 찍기
     sec += 1
@@ -34,17 +34,19 @@ while(True):
     if nx < 0 or nx >= n or ny < 0 or ny >= n:
         break
 
+    spaces.appendleft([x, y])
+
+    # 자기 몸통과 부딪힐 경우
+    if [nx, ny] in spaces:
+        break
+
     # 사과를 먹음
     if apples[nx][ny] == 1:
         apples[nx][ny] = 0
     else:
         if (spaces):
             spaces.pop()
-     # 자기 몸통과 부딪힐 경우
-    if [nx, ny] in spaces:
-        break
 
-    spaces.appendleft([nx, ny])
     # 방향 바꾸기
     if sec in changes:
         new_dir = changes[sec]
